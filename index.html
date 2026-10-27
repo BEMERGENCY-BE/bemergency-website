@@ -139,26 +139,33 @@ h2 { font-size: 28px; }
 .social-buttons {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 18px;
 }
 
 .social-button {
   position: relative;
-  display: inline-block;
-  padding: 10px 16px;
-  border: 1px solid #52677e;
-  border-radius: 6px;
-  color: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 13px;
   transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .social-button:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px) scale(1.05);
   background: #192f47;
+}
+
+.social-button img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  display: block;
 }
 
 .social-button span {
@@ -285,7 +292,7 @@ footer {
         target="_blank"
         rel="noopener noreferrer"
       >
-        YouTube
+        <img src="youtube.webp" alt="YouTube">
         <span>BEMERGENCY Animal Rescue (@BEMERGENCY)</span>
       </a>
 
@@ -295,7 +302,7 @@ footer {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Instagram
+        <img src="instagram.png" alt="Instagram">
         <span>BEMERGENCY (@bemergency.be)</span>
       </a>
 
@@ -305,7 +312,7 @@ footer {
         target="_blank"
         rel="noopener noreferrer"
       >
-        TikTok
+        <img src="tiktok.png" alt="TikTok">
         <span>BEMERGENCY (@bemergency.be)</span>
       </a>
 
@@ -314,7 +321,7 @@ footer {
         href="javascript:void(0)"
         onclick="return false;"
       >
-        Facebook
+        <img src="facebook.png" alt="Facebook">
         <span>Facebook page coming soon</span>
       </a>
 
