@@ -130,37 +130,28 @@ h2 { font-size: 28px; }
 
 .funding-title {
   color: #1d5fa7;
-  font-size: 36px;
+  font-size: 42px;
   font-weight: normal;
-  margin-bottom: 25px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.funding-boxes {
+.funding-buttons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-.funding-box {
-  background: white;
-  border: 1px solid #dce3ec;
-  min-height: 230px;
-  padding: 30px 24px;
+.funding-button {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.funding-button {
-  display: inline-block;
+  min-height: 180px;
   background: #1d5fa7;
   color: white;
   text-decoration: none;
-  padding: 18px 45px;
-  font-size: 18px;
+  font-size: 32px;
   font-weight: bold;
-  border-radius: 4px;
   text-align: center;
 }
 
@@ -169,7 +160,7 @@ h2 { font-size: 28px; }
 }
 
 @media (max-width: 700px) {
-  .funding-boxes {
+  .funding-buttons {
     grid-template-columns: 1fr;
   }
 }
@@ -316,40 +307,34 @@ footer {
 
   <div class="funding-title">FUND OUR PROJECT</div>
 
-  <div class="funding-boxes">
+  <div class="funding-buttons">
 
-    <div class="funding-box">
-      <a
-        class="funding-button"
-        href="YOUR_5_EURO_PAYMENT_LINK"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        €5
-      </a>
-    </div>
+    <a
+      class="funding-button"
+      href="YOUR_5_EURO_PAYMENT_LINK"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      €5
+    </a>
 
-    <div class="funding-box">
-      <a
-        class="funding-button"
-        href="YOUR_10_EURO_PAYMENT_LINK"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        €10
-      </a>
-    </div>
+    <a
+      class="funding-button"
+      href="YOUR_10_EURO_PAYMENT_LINK"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      €10
+    </a>
 
-    <div class="funding-box">
-      <a
-        class="funding-button"
-        href="YOUR_100_EURO_PAYMENT_LINK"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        €100
-      </a>
-    </div>
+    <a
+      class="funding-button"
+      href="YOUR_100_EURO_PAYMENT_LINK"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      €100
+    </a>
 
   </div>
 
