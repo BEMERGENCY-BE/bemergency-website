@@ -135,18 +135,29 @@ h2 { font-size: 28px; }
   margin-bottom: 25px;
 }
 
-.funding-buttons {
+.funding-boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.funding-box {
+  background: white;
+  border: 1px solid #dce3ec;
+  min-height: 230px;
+  padding: 30px 24px;
   display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .funding-button {
-  display: block;
+  display: inline-block;
   background: #1d5fa7;
   color: white;
   text-decoration: none;
-  padding: 18px 35px;
+  padding: 18px 45px;
   font-size: 18px;
   font-weight: bold;
   border-radius: 4px;
@@ -155,6 +166,12 @@ h2 { font-size: 28px; }
 
 .funding-button:hover {
   background: #174d87;
+}
+
+@media (max-width: 700px) {
+  .funding-boxes {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* SOCIAL MEDIA */
@@ -299,34 +316,40 @@ footer {
 
   <div class="funding-title">FUND OUR PROJECT</div>
 
-  <div class="funding-buttons">
+  <div class="funding-boxes">
 
-    <a
-      class="funding-button"
-      href="YOUR_5_EURO_PAYMENT_LINK"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      €5
-    </a>
+    <div class="funding-box">
+      <a
+        class="funding-button"
+        href="YOUR_5_EURO_PAYMENT_LINK"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        €5
+      </a>
+    </div>
 
-    <a
-      class="funding-button"
-      href="YOUR_10_EURO_PAYMENT_LINK"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      €10
-    </a>
+    <div class="funding-box">
+      <a
+        class="funding-button"
+        href="YOUR_10_EURO_PAYMENT_LINK"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        €10
+      </a>
+    </div>
 
-    <a
-      class="funding-button"
-      href="YOUR_100_EURO_PAYMENT_LINK"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      €100
-    </a>
+    <div class="funding-box">
+      <a
+        class="funding-button"
+        href="YOUR_100_EURO_PAYMENT_LINK"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        €100
+      </a>
+    </div>
 
   </div>
 
