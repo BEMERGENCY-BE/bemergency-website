@@ -189,12 +189,13 @@ h2 { font-size: 28px; }
 
 @media (max-width: 700px) {
   .funding-buttons {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
   }
 
   .funding-button {
-    max-width: 300px;
-    margin: auto;
+    max-width: none;
+    font-size: 24px;
   }
 }
 
@@ -425,11 +426,12 @@ footer {
 
       <a
         class="social-button"
-        href="javascript:void(0)"
-        onclick="return false;"
+        href="https://www.facebook.com/share/19oiCnVFxe/"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <img src="facebook.png" alt="Facebook">
-        <span>Facebook page in the works</span>
+        <span>BEMERGENCY</span>
       </a>
 
     </div>
@@ -438,4 +440,3 @@ footer {
 
 </body>
 </html>
-```
