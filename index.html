@@ -101,7 +101,6 @@ header {
     position: absolute;
     top: 20px;
     right: 24px;
-    width: 38px;
     height: 38px;
     padding: 5px;
     border: none;
@@ -110,7 +109,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    gap: 4px;
+    border-radius: 20px;
 }
 
 .theme-toggle:hover {
@@ -126,6 +126,17 @@ body.dark-mode .theme-toggle:hover {
     height: 27px;
     object-fit: contain;
     display: block;
+}
+
+.theme-beta {
+    font-size: 8px;
+    font-weight: bold;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+body.dark-mode .theme-beta {
+    color: white;
 }
 
 /* NAVIGATION */
@@ -502,9 +513,12 @@ footer {
     <button class="theme-toggle" id="themeToggle"
         onclick="toggleDarkMode()"
         aria-label="Switch to dark mode">
+
         <img id="themeIcon"
-            src="output-onlinepngtools (1).png"
-            alt="Dark mode">
+            src="sun.png"
+            alt="Light mode">
+
+        <span class="theme-beta" id="themeBeta">BETA</span>
     </button>
 
     <div class="brand">BEMERGENCY</div>
@@ -727,12 +741,12 @@ function updateThemeIcon() {
     const isDark = document.body.classList.contains("dark-mode");
 
     if (isDark) {
-        themeIcon.src = "sun.png";
-        themeIcon.alt = "Light mode";
-        themeToggle.setAttribute("aria-label", "Switch to light mode");
-    } else {
         themeIcon.src = "moonib.png";
         themeIcon.alt = "Dark mode";
+        themeToggle.setAttribute("aria-label", "Switch to light mode");
+    } else {
+        themeIcon.src = "sun.png";
+        themeIcon.alt = "Light mode";
         themeToggle.setAttribute("aria-label", "Switch to dark mode");
     }
 }
