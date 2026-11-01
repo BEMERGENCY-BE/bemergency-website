@@ -187,6 +187,78 @@ h2 { font-size: 28px; }
   transform: translate(-50%, 0);
 }
 
+/* LEGAL INFO */
+
+.legal-info-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: #1d5fa7;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: #1d5fa7;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.legal-info-link:hover {
+  color: #174d87;
+  text-decoration-color: #174d87;
+}
+
+/* LEGAL INFO POPUP */
+
+.legal-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 36, 58, 0.65);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.legal-popup-content {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: #f4f4f4;
+  color: #17283c;
+  padding: 32px;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+.legal-popup-content h2 {
+  margin-top: 0;
+  color: #1d5fa7;
+}
+
+.legal-popup-content p {
+  color: #536478;
+  line-height: 1.7;
+}
+
+.legal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  border: none;
+  background: none;
+  color: #17283c;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.legal-close:hover {
+  color: #1d5fa7;
+}
+
 @media (max-width: 700px) {
   .funding-buttons {
     grid-template-columns: repeat(3, 1fr);
@@ -196,6 +268,12 @@ h2 { font-size: 28px; }
   .funding-button {
     max-width: none;
     font-size: 24px;
+  }
+
+  .legal-popup-content {
+    max-width: 500px;
+    max-height: 82vh;
+    padding: 26px;
   }
 }
 
@@ -369,6 +447,10 @@ footer {
 
   </div>
 
+  <a class="legal-info-link" href="javascript:void(0)" onclick="openLegalPopup(); return false;">
+    Legal info
+  </a>
+
 </section>
 
 <section id="future">
@@ -438,5 +520,35 @@ footer {
   </div>
 </footer>
 
+<div class="legal-popup" id="legalPopup" onclick="closeLegalPopup(event)">
+  <div class="legal-popup-content" onclick="event.stopPropagation();">
+
+    <button class="legal-close" onclick="closeLegalPopup()">×</button>
+
+    <h2>Funding & Legal Information</h2>
+
+    <p>
+      Funding information for the BEMERGENCY Project will be provided here.
+      This section will explain how contributions are handled, what project
+      expenses they may support, and how contributors can contact BEMERGENCY
+      regarding questions about their contribution.
+    </p>
+
+  </div>
+</div>
+
+<script>
+function openLegalPopup() {
+  document.getElementById("legalPopup").style.display = "flex";
+}
+
+function closeLegalPopup(event) {
+  if (!event || event.target === document.getElementById("legalPopup")) {
+    document.getElementById("legalPopup").style.display = "none";
+  }
+}
+</script>
+
 </body>
 </html>
+```
