@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,13 +19,163 @@ body {
   font-family: Arial, sans-serif;
   background: #f1f4f8;
   color: #17283c;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
+/* DARK MODE */
+
+body.dark-mode {
+  background: #101820;
+  color: #e6edf3;
+}
+
+body.dark-mode header {
+  background: #151d26;
+  color: #e6edf3;
+  border-bottom-color: #e6edf3;
+}
+
+body.dark-mode .brand,
+body.dark-mode .brand span {
+  color: #e6edf3;
+}
+
+body.dark-mode nav {
+  background: #0b1117;
+}
+
+body.dark-mode .hero {
+  background-image:
+    linear-gradient(rgba(5, 12, 20, 0.78), rgba(5, 12, 20, 0.78)),
+    url("https://raw.githubusercontent.com/BEMERGENCY-BE/bemergency-website/main/banner.png");
+}
+
+body.dark-mode .hero p {
+  color: #c4ced8;
+}
+
+body.dark-mode section {
+  color: #e6edf3;
+}
+
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #e6edf3;
+}
+
+body.dark-mode .card {
+  background: #18232e;
+  border-color: #2c3a47;
+}
+
+body.dark-mode .card p {
+  color: #b7c2ce;
+}
+
+body.dark-mode .legal-info-link {
+  color: #6da8dc;
+  text-decoration-color: #6da8dc;
+}
+
+body.dark-mode .legal-info-link:hover {
+  color: #8fc1ed;
+  text-decoration-color: #8fc1ed;
+}
+
+body.dark-mode .funding-button {
+  background: #245f91;
+}
+
+body.dark-mode .funding-button:hover {
+  background: #1d4f79;
+}
+
+body.dark-mode .funding-button::after {
+  background: #18232e;
+  color: #e6edf3;
+}
+
+body.dark-mode .legal-popup {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+body.dark-mode .legal-popup-content {
+  background: #18232e;
+  color: #e6edf3;
+}
+
+body.dark-mode .legal-popup-content h2 {
+  color: #6da8dc;
+}
+
+body.dark-mode .legal-popup-content p {
+  color: #b7c2ce;
+}
+
+body.dark-mode .legal-close {
+  color: #e6edf3;
+}
+
+body.dark-mode .legal-close:hover {
+  color: #6da8dc;
+}
+
+body.dark-mode .social-button:hover {
+  background: #243442;
+}
+
+body.dark-mode .social-button span {
+  background: #18232e;
+  color: #e6edf3;
+}
+
+body.dark-mode footer {
+  background: #080e14;
+  color: #b7c2ce;
+}
+
+/* DARK MODE TOGGLE */
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  width: 38px;
+  height: 38px;
+  padding: 5px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle img {
+  width: 27px;
+  height: 27px;
+  object-fit: contain;
+  display: block;
+}
+
+/* HEADER */
+
 header {
+  position: relative;
   background: #f4f4f4;
   color: #17283c;
   padding: 24px;
   border-bottom: 4px solid black;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .brand {
@@ -42,6 +193,7 @@ nav {
   background: #192f47;
   padding: 14px 24px;
   text-align: center;
+  transition: background 0.3s ease;
 }
 
 nav a {
@@ -82,12 +234,20 @@ nav a:hover {
   font-size: 12px;
 }
 
+body.dark-mode .eyebrow {
+  color: white !important;
+}
+
 h1 {
   font-size: clamp(36px, 7vw, 64px);
   margin: 16px 0;
 }
 
 h1 span { color: black; }
+
+body.dark-mode h1 span {
+  color: white;
+}
 
 .button {
   display: inline-block;
@@ -98,6 +258,11 @@ h1 span { color: black; }
   color: white;
   text-decoration: none;
   font-weight: bold;
+}
+
+body.dark-mode .button {
+  background: white;
+  color: #101820;
 }
 
 section {
@@ -119,6 +284,7 @@ h2 { font-size: 28px; }
   padding: 24px;
   border-radius: 10px;
   border: 1px solid #dce3ec;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .card p {
@@ -156,6 +322,7 @@ h2 { font-size: 28px; }
   font-weight: bold;
   text-align: center;
   cursor: default;
+  transition: background 0.3s ease;
 }
 
 .funding-button:hover {
@@ -232,6 +399,7 @@ h2 { font-size: 28px; }
   border-radius: 8px;
   text-align: left;
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .legal-popup-content h2 {
@@ -274,6 +442,11 @@ h2 { font-size: 28px; }
     max-width: 500px;
     max-height: 82vh;
     padding: 26px;
+  }
+
+  .theme-toggle {
+    top: 18px;
+    right: 16px;
   }
 }
 
@@ -348,6 +521,7 @@ footer {
   text-align: center;
   padding: 30px 20px;
   font-size: 13px;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 </style>
 </head>
@@ -355,6 +529,11 @@ footer {
 <body>
 
 <header>
+
+  <button class="theme-toggle" id="themeToggle" onclick="toggleDarkMode()" aria-label="Switch to dark mode">
+    <img id="themeIcon" src="output-onlinepngtools (1).png" alt="Dark mode">
+  </button>
+
   <div class="brand">BEMERGENCY</div>
 </header>
 
@@ -532,39 +711,4 @@ All donations made in support of the BEMERGENCY Project are processed through es
 
 BEMERGENCY does not directly process or store sensitive payment information such as full card numbers, security codes or banking credentials on the BEMERGENCY website unless a specific payment system officially requires such information to be entered through its own secure payment environment. Payment information is handled through the relevant payment provider according to that provider's own security and privacy procedures.
 
-All funds received specifically as donations for the BEMERGENCY Project are intended to be kept separate from ordinary personal spending and are intended to be placed into a dedicated bank account or financial account used for the project. Money received for BEMERGENCY is intended to be used exclusively for legitimate BEMERGENCY-related purposes, including the development, maintenance and operation of the project, website-related costs, project materials, equipment, communication, media production, animal-related activities and other expenses that directly support the objectives of BEMERGENCY.
-
-Donated funds are not intended to be used for unrelated personal purchases or private expenses. The purpose of this separation is to make it easier to keep project finances organised and to ensure that money provided by supporters remains associated with the purpose for which it was donated.
-
-If a supporter has a question about a payment, believes that a payment was made incorrectly, or wishes to request that a donation be returned, they may contact BEMERGENCY through the official contact methods made available on this website. Requests for refunds or returns will be reviewed individually, taking into account the payment method used, the circumstances of the payment and any applicable terms or requirements of the payment provider or financial institution involved. A refund cannot always be guaranteed, particularly where the payment provider's own rules, transaction status or other applicable requirements prevent a transaction from being reversed.
-
-For payments made through third-party payment providers, the provider's own terms and procedures may also apply. For example, Mastercard states that transaction disputes are handled through the financial institution that issued the card, while PayPal provides its own procedures for transaction disputes and complaints. These external procedures operate independently from BEMERGENCY's internal refund-request process.
-
-BEMERGENCY will never intentionally describe a third-party payment provider as guaranteeing a refund for a donation when that protection does not apply. Any protection, dispute procedure, chargeback possibility or refund mechanism is subject to the rules of the relevant payment provider, bank or card issuer.
-
-If you would like to request a refund directly from BEMERGENCY, please contact us through one of the currently available official contact methods and provide enough information for us to identify the relevant transaction, such as the approximate date, amount and payment method. Do not send passwords, full card numbers, security codes or other unnecessary sensitive financial information by email or social media.
-
-BEMERGENCY aims to handle all financial contributions responsibly and transparently. The intention is that every donation made to the project contributes towards the continuation and development of BEMERGENCY and its activities rather than being used for purposes unrelated to the project.
-
-By making a donation, supporters acknowledge that BEMERGENCY is a project and that donations are voluntary contributions intended to support the project. Donations do not constitute the purchase of a product or service unless explicitly stated otherwise. Payment processing itself may be subject to the terms, conditions, fees, security procedures and dispute-resolution systems of the external payment provider used for the transaction.
-
-For questions regarding donations, payments, refunds or the use of project funds, please contact BEMERGENCY using the official contact information provided on this website.
-    </p>
-  </div>
-</div>
-
-<script>
-function openLegalPopup() {
-  document.getElementById("legalPopup").style.display = "flex";
-}
-
-function closeLegalPopup(event) {
-  if (!event || event.target === document.getElementById("legalPopup")) {
-    document.getElementById("legalPopup").style.display = "none";
-  }
-}
-</script>
-
-</body>
-</html>
-```
+All funds received specifically as donations for the BEMERGENCY Project are intended to be kept separate from ordinary personal spending and are intended to be placed into a dedicated bank account or financial account used for the project. Money received for BEMERGENCY is intended to be used exclusively for legitimate BEMERGENCY-related purposes, including the development, maintenance and operation of the project, website-related costs, project materials, equipment, communication, media production, animal-related activities and other expenses that directly
