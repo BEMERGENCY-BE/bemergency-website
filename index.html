@@ -1,0 +1,770 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The BEMERGENCY Project</title>
+<link rel="icon" type="image/png" href="pikachu-wallpaper-1-fotor-2026102716452-modified%20%281%29.png">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f4f8;
+    color: #17283c;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* THEME VARIABLES */
+
+:root {
+    --page-bg: #f1f4f8;
+    --header-bg: #f4f4f4;
+    --text: #17283c;
+    --muted: #536478;
+    --card-bg: #ffffff;
+    --card-border: #dce3ec;
+    --nav-bg: #192f47;
+    --footer-bg: #10243a;
+    --footer-text: #d4deea;
+    --popup-bg: #f4f4f4;
+    --popup-overlay: rgba(16, 36, 58, 0.65);
+    --accent: #1d5fa7;
+    --accent-hover: #174d87;
+    --funding-bg: #1d5fa7;
+    --tooltip-bg: #f4f4f4;
+    --tooltip-text: #17283c;
+    --border: #000000;
+}
+
+body.dark-mode {
+    --page-bg: #141c25;
+    --header-bg: #1c2631;
+    --text: #e6edf3;
+    --muted: #bdc8d3;
+    --card-bg: #202b36;
+    --card-border: #354351;
+    --nav-bg: #101820;
+    --footer-bg: #0b1117;
+    --footer-text: #bdc8d3;
+    --popup-bg: #202b36;
+    --popup-overlay: rgba(0, 0, 0, 0.78);
+    --accent: #79b6ed;
+    --accent-hover: #a0cefa;
+    --funding-bg: #245f91;
+    --tooltip-bg: #202b36;
+    --tooltip-text: #e6edf3;
+    --border: #354351;
+}
+
+body {
+    background: var(--page-bg);
+    color: var(--text);
+}
+
+/* HEADER */
+
+header {
+    position: relative;
+    background: var(--header-bg);
+    color: var(--text);
+    padding: 24px;
+    border-bottom: 4px solid var(--border);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.brand {
+    max-width: 1000px;
+    margin: auto;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--text);
+}
+
+.brand span {
+    color: var(--text);
+}
+
+/* DARK MODE BUTTON */
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    width: 38px;
+    height: 38px;
+    padding: 5px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode .theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle img {
+    width: 27px;
+    height: 27px;
+    object-fit: contain;
+    display: block;
+}
+
+/* NAVIGATION */
+
+nav {
+    background: var(--nav-bg);
+    padding: 14px 24px;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 14px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+/* HERO */
+
+.hero {
+    background-image:
+        linear-gradient(rgba(16, 36, 58, 0.68), rgba(16, 36, 58, 0.68)),
+        url("https://raw.githubusercontent.com/BEMERGENCY-BE/bemergency-website/main/banner.png");
+    background-size: cover;
+    background-position: center;
+    min-height: 450px;
+    color: white;
+    padding: 75px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+body.dark-mode .hero {
+    background-image:
+        linear-gradient(rgba(5, 12, 20, 0.78), rgba(5, 12, 20, 0.78)),
+        url("https://raw.githubusercontent.com/BEMERGENCY-BE/bemergency-website/main/banner.png");
+}
+
+.hero p {
+    color: #d4deea;
+    line-height: 1.7;
+}
+
+.eyebrow {
+    color: black !important;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+body.dark-mode .eyebrow {
+    color: #e6edf3 !important;
+}
+
+h1 {
+    font-size: clamp(36px, 7vw, 64px);
+    margin: 16px 0;
+}
+
+h1 span {
+    color: black;
+}
+
+body.dark-mode h1 span {
+    color: white;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 14px 24px;
+    border-radius: 6px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+body.dark-mode .button {
+    background: white;
+    color: #101820;
+}
+
+/* SECTIONS */
+
+section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 55px 24px;
+    color: var(--text);
+    transition: color 0.3s ease;
+}
+
+h2 {
+    font-size: 28px;
+    color: var(--text);
+}
+
+h3 {
+    color: var(--text);
+}
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+    color: var(--text);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.card p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+/* FUNDING */
+
+.funding-title {
+    color: var(--accent);
+    font-size: 42px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.funding-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.funding-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    background: var(--funding-bg);
+    color: white;
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    cursor: default;
+    transition: background 0.3s ease;
+}
+
+.funding-button:hover {
+    background: var(--accent-hover);
+}
+
+.funding-button::after {
+    content: "Funding system currently in development.";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, 8px);
+    background: var(--tooltip-bg);
+    color: var(--tooltip-text);
+    padding: 9px 13px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    margin-bottom: 8px;
+    z-index: 10;
+}
+
+.funding-button:hover::after {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* LEGAL INFORMATION LINK */
+
+.legal-info-link {
+    display: inline-block;
+    margin-top: 18px;
+    color: var(--accent);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    cursor: pointer;
+}
+
+.legal-info-link:hover {
+    color: var(--accent-hover);
+    text-decoration-color: var(--accent-hover);
+}
+
+/* LEGAL POPUP */
+
+.legal-popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--popup-overlay);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.legal-popup-content {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: var(--popup-bg);
+    color: var(--text);
+    padding: 32px;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.legal-popup-content h2 {
+    margin-top: 0;
+    color: var(--accent);
+}
+
+.legal-popup-content p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.legal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    border: none;
+    background: none;
+    color: var(--text);
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.legal-close:hover {
+    color: var(--accent);
+}
+
+/* SOCIAL MEDIA */
+
+.socials {
+    margin-top: 25px;
+}
+
+.socials h3 {
+    margin-bottom: 18px;
+    color: #f4f4f4;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.social-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.social-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: var(--nav-bg);
+}
+
+.social-button img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    display: block;
+}
+
+.social-button span {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, 8px);
+    background: var(--tooltip-bg);
+    color: var(--tooltip-text);
+    padding: 7px 11px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    margin-bottom: 8px;
+}
+
+.social-button:hover span {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 13px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+    .funding-buttons {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .funding-button {
+        max-width: none;
+        font-size: 24px;
+    }
+
+    .legal-popup-content {
+        max-width: 500px;
+        max-height: 82vh;
+        padding: 26px;
+    }
+
+    .theme-toggle {
+        top: 18px;
+        right: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <button class="theme-toggle" id="themeToggle"
+        onclick="toggleDarkMode()"
+        aria-label="Switch to dark mode">
+        <img id="themeIcon"
+            src="output-onlinepngtools (1).png"
+            alt="Dark mode">
+    </button>
+
+    <div class="brand">BEMERGENCY</div>
+</header>
+
+<nav>
+    <a href="#about">About us</a>
+    <a href="#mission">Our mission</a>
+    <a href="#future">The future</a>
+</nav>
+
+<div class="hero">
+    <p class="eyebrow">BELGIUM · ANIMAL WELFARE</p>
+
+    <h1>The BEMERGENCY<br>
+        <span>Project.</span>
+    </h1>
+
+    <p>
+        A vision for a Belgian animal rescue initiative.<br>
+        Giving animals in need a chance at a safer future.
+    </p>
+
+    <a class="button" href="#mission">Discover our mission</a>
+</div>
+
+<section id="about">
+    <p class="eyebrow">WHO WE ARE</p>
+
+    <h2>Introducing The BEMERGENCY Project</h2>
+
+    <p>
+        The BEMERGENCY Project is a project in development with a vision
+        of helping animals in need throughout Belgium. Our goal
+        is to build a responsible initiative focused on animal
+        welfare, rescue and cooperation with experienced professionals.
+    </p>
+</section>
+
+<section id="mission">
+    <p class="eyebrow">OUR PURPOSE</p>
+
+    <h2>What we stand for</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Animal welfare</h3>
+            <p>Promoting the safety and well-being of animals.</p>
+        </div>
+
+        <div class="card">
+            <h3>Rescue vision</h3>
+            <p>Working toward a future where animals in need can get appropriate help.</p>
+        </div>
+
+        <div class="card">
+            <h3>Cooperation</h3>
+            <p>Building relationships with animal shelters, veterinarians and relevant authorities.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="funding">
+
+    <div class="funding-title">FUND OUR PROJECT</div>
+
+    <div class="funding-buttons">
+
+        <a class="funding-button"
+            href="javascript:void(0)"
+            onclick="return false;">
+            €5
+        </a>
+
+        <a class="funding-button"
+            href="javascript:void(0)"
+            onclick="return false;">
+            €10
+        </a>
+
+        <a class="funding-button"
+            href="javascript:void(0)"
+            onclick="return false;">
+            €100
+        </a>
+
+    </div>
+
+    <a class="legal-info-link"
+        href="javascript:void(0)"
+        onclick="openLegalPopup(); return false;">
+        Legal info
+    </a>
+
+</section>
+
+<section id="future">
+    <p class="eyebrow">THE ROAD AHEAD</p>
+
+    <h2>A project with a purpose</h2>
+
+    <p>
+        The BEMERGENCY Project is currently in development. Our future plans
+        will depend on the necessary partnerships, resources and
+        legal authorizations.
+    </p>
+</section>
+
+<footer>
+    <strong>BEMERGENCY © 2026</strong><br><br>
+
+    Belgian Animal Rescue · Project in development<br>
+    bemergency.be
+
+    <div class="socials">
+        <h3>Follow BEMERGENCY</h3>
+
+        <div class="social-buttons">
+
+            <a class="social-button"
+                href="https://www.youtube.com/channel/UC7IVCmoqY9AdbihFphrKdeQ"
+                target="_blank"
+                rel="noopener noreferrer">
+                <img src="youtube.webp" alt="YouTube">
+                <span>BEMERGENCY Animal Rescue (@BEMERGENCY)</span>
+            </a>
+
+            <a class="social-button"
+                href="https://www.instagram.com/bemergency.be/"
+                target="_blank"
+                rel="noopener noreferrer">
+                <img src="instagram.png" alt="Instagram">
+                <span>BEMERGENCY (@bemergency.be)</span>
+            </a>
+
+            <a class="social-button"
+                href="https://www.tiktok.com/@bemergency.be"
+                target="_blank"
+                rel="noopener noreferrer">
+                <img src="tiktok.png" alt="TikTok">
+                <span>BEMERGENCY (@bemergency.be)</span>
+            </a>
+
+            <a class="social-button"
+                href="https://www.facebook.com/share/19oiCnVFxe/"
+                target="_blank"
+                rel="noopener noreferrer">
+                <img src="facebook.png" alt="Facebook">
+                <span>BEMERGENCY</span>
+            </a>
+
+        </div>
+    </div>
+</footer>
+
+<!-- LEGAL POPUP -->
+
+<div class="legal-popup" id="legalPopup"
+    onclick="closeLegalPopup(event)">
+
+    <div class="legal-popup-content"
+        onclick="event.stopPropagation();">
+
+        <button class="legal-close"
+            onclick="closeLegalPopup()">×</button>
+
+        <h2>Funding & Legal Information</h2>
+
+        <p>
+All donations made in support of the BEMERGENCY Project are processed through established and recognised payment services and financial institutions. Depending on the payment methods made available by BEMERGENCY, supporters may be able to make payments through services such as PayPal, Mastercard, Visa and other established payment providers. These payment services have their own security systems, terms of service and procedures for handling transactions, disputes and payment-related issues.
+
+BEMERGENCY does not directly process or store sensitive payment information such as full card numbers, security codes or banking credentials on the BEMERGENCY website unless a specific payment system officially requires such information to be entered through its own secure payment environment. Payment information is handled through the relevant payment provider according to that provider's own security and privacy procedures.
+
+All funds received specifically as donations for the BEMERGENCY Project are intended to be kept separate from ordinary personal spending and are intended to be placed into a dedicated bank account or financial account used for the project. Money received for BEMERGENCY is intended to be used exclusively for legitimate BEMERGENCY-related purposes, including the development, maintenance and operation of the project, website-related costs, project materials, equipment, communication, media production, animal-related activities and other expenses that directly support the objectives of BEMERGENCY.
+
+Donated funds are not intended to be used for unrelated personal purchases or private expenses. The purpose of this separation is to make it easier to keep project finances organised and to ensure that money provided by supporters remains associated with the purpose for which it was donated.
+
+If a supporter has a question about a payment, believes that a payment was made incorrectly, or wishes to request that a donation be returned, they may contact BEMERGENCY through the official contact methods made available on this website. Requests for refunds or returns will be reviewed individually, taking into account the payment method used, the circumstances of the payment and any applicable terms or requirements of the payment provider or financial institution involved. A refund cannot always be guaranteed, particularly where the payment provider's own rules, transaction status or other applicable requirements prevent a transaction from being reversed.
+
+For payments made through third-party payment providers, the provider's own terms and procedures may also apply. For example, Mastercard states that transaction disputes are handled through the financial institution that issued the card, while PayPal provides its own procedures for transaction disputes and complaints. These external procedures operate independently from BEMERGENCY's internal refund-request process.
+
+BEMERGENCY will never intentionally describe a third-party payment provider as guaranteeing a refund for a donation when that protection does not apply. Any protection, dispute procedure, chargeback possibility or refund mechanism is subject to the rules of the relevant payment provider, bank or card issuer.
+
+If you would like to request a refund directly from BEMERGENCY, please contact us through one of the currently available official contact methods and provide enough information for us to identify the relevant transaction, such as the approximate date, amount and payment method. Do not send passwords, full card numbers, security codes or other unnecessary sensitive financial information by email or social media.
+
+BEMERGENCY aims to handle all financial contributions responsibly and transparently. The intention is that every donation made to the project contributes towards the continuation and development of BEMERGENCY and its activities rather than being used for purposes unrelated to the project.
+
+By making a donation, supporters acknowledge that BEMERGENCY is a project and that donations are voluntary contributions intended to support the project. Donations do not constitute the purchase of a product or service unless explicitly stated otherwise. Payment processing itself may be subject to the terms, conditions, fees, security procedures and dispute-resolution systems of the external payment provider used for the transaction.
+
+For questions regarding donations, payments, refunds or the use of project funds, please contact BEMERGENCY using the official contact information provided on this website.
+        </p>
+
+    </div>
+</div>
+
+<script>
+
+/* LEGAL POPUP */
+
+function openLegalPopup() {
+    document.getElementById("legalPopup").style.display = "flex";
+}
+
+function closeLegalPopup(event) {
+    const popup = document.getElementById("legalPopup");
+
+    if (!event || event.target === popup) {
+        popup.style.display = "none";
+    }
+}
+
+/* DARK MODE */
+
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+
+function updateThemeIcon() {
+    const isDark = document.body.classList.contains("dark-mode");
+
+    if (isDark) {
+        themeIcon.src = "fezfzef.jpg";
+        themeIcon.alt = "Light mode";
+        themeToggle.setAttribute("aria-label", "Switch to light mode");
+    } else {
+        themeIcon.src = "output-onlinepngtools (1).png";
+        themeIcon.alt = "Dark mode";
+        themeToggle.setAttribute("aria-label", "Switch to dark mode");
+    }
+}
+
+function toggleDarkMode() {
+    const isDark = document.body.classList.toggle("dark-mode");
+
+    try {
+        localStorage.setItem(
+            "bemergency-dark-mode",
+            isDark ? "enabled" : "disabled"
+        );
+    } catch (error) {
+        console.warn("Could not save theme preference.", error);
+    }
+
+    updateThemeIcon();
+}
+
+/* RESTORE SAVED THEME */
+
+try {
+    if (localStorage.getItem("bemergency-dark-mode") === "enabled") {
+        document.body.classList.add("dark-mode");
+    }
+} catch (error) {
+    console.warn("Could not load saved theme preference.", error);
+}
+
+updateThemeIcon();
+
+</script>
+
+</body>
+</html>
